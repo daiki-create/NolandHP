@@ -26,6 +26,14 @@ Route::get('/vue', function () {
     return view('vue');
 });
 
-Route::get('/', function () {
+Route::get('/hello', function () {
     return Inertia::render('hello-world');
+});
+
+Route::get('/', function () {
+    return Inertia::render('index');
+});
+
+Route::get('/about', function () {
+    return Inertia::render('about');
 });

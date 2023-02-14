@@ -40,6 +40,7 @@ const vuetify = createVuetify()
 //     },
 //   })
 
+
 createInertiaApp({
     resolve: (name) =>
         resolvePageComponent(
