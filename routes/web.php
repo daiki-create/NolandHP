@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Inertia\Inertia;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,10 +18,14 @@ Route::get('/welcome', function () {
     return view('welcome');
 });
 
-Route::get('/', function () {
-    return view('index');
+Route::get('/test', function () {
+    return view('test');
 });
 
 Route::get('/vue', function () {
     return view('vue');
+});
+
+Route::get('/', function () {
+    return Inertia::render('hello-world');
 });
