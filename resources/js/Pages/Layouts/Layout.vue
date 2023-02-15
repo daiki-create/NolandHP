@@ -5,19 +5,26 @@
         color="white"
         flat
         density="compact"
-      >
-        <img style="max-height: 100%" src="https://t3.ftcdn.net/jpg/04/06/91/62/360_F_406916265_hxmrv7wgw9SZN9871yebxQJAX7HsHdNp.jpg"/>
-  
+      >  
+
+        <img style="max-height: 100%;" src="https://t3.ftcdn.net/jpg/04/06/91/62/360_F_406916265_hxmrv7wgw9SZN9871yebxQJAX7HsHdNp.jpg"/>
+
         <v-spacer></v-spacer>
   
         <nav>
             <ul style="display:flex; align-items:center">
                 <li style="padding:0 20px;">
-                    <Link href="/">TOP</Link>
+                    <Link href="/">HOME</Link>
                 </li>
                 <li style="padding:0 20px;">
-                    <Link href="/about">ABOUT</Link>
+                    <Link href="/about">ABOUT US</Link>
                 </li>
+                <li style="padding:0 20px;">
+                  <Link href="/blog">BLOG</Link>
+              </li>
+              <li style="padding:0 20px;">
+                <Link href="/contact">CONTACT</Link>
+            </li>
             </ul>
         </nav>
 
@@ -37,7 +44,7 @@
   
       <v-main class="bg-grey-lighten-3">
         <slot name="top-img"/>
-        <v-container>
+        <v-container class="mt-8">
           <v-row>
             <v-col
               cols="12"
@@ -50,7 +57,6 @@
               sm="8"
             >
               <v-sheet
-                min-height="700vh"
                 rounded="lg"
                 class="pa-md-4 mx-lg-auto"
               >
@@ -62,33 +68,64 @@
               cols="12"
               sm="2"
             >
-              <v-sheet
-                rounded="lg"
-                min-height="268"
-                class="pa-md-2 mx-lg-auto"
-              >
-                おすすめ記事
-              </v-sheet>
-              <br>
-              <v-sheet
-                rounded="lg"
-                min-height="268"
-                class="pa-md-2 mx-lg-auto"
-              >
-                広告
-              </v-sheet>
-              <br>
-              <v-sheet
-                rounded="lg"
-                min-height="268"
-                class="pa-md-2 mx-lg-auto"
-              >
-                プロフィール
-              </v-sheet>
+              <slot name="side-reccomend"/>
+              <slot name="side-addvertise"/>
+              <slot name="side-writer"/>
+
             </v-col>
           </v-row>
         </v-container>
+
+        <v-footer class="bg-grey-lighten-1 mt-20">
+          <v-row justify="center" no-gutters>
+            <v-btn
+              :key="link"
+              color="white"
+              variant="text"
+              class="mx-2"
+              rounded="xl"
+              href="/"
+            >
+              HOME
+            </v-btn>
+            <v-btn
+              :key="link"
+              color="white"
+              variant="text"
+              class="mx-2"
+              rounded="xl"
+              href="/about"
+            >
+              ABOUT US
+            </v-btn>
+            <v-btn
+              :key="link"
+              color="white"
+              variant="text"
+              class="mx-2"
+              rounded="xl"
+              href="/blog"
+            >
+              BLOG
+            </v-btn>
+            <v-btn
+              :key="link"
+              color="white"
+              variant="text"
+              class="mx-2"
+              rounded="xl"
+              href="/contact"
+            >
+              CONTACT
+            </v-btn>
+            <v-col class="text-center mt-4" cols="12">
+              {{ new Date().getFullYear() }} — <strong>Noland制作</strong>
+            </v-col>
+          </v-row>
+        </v-footer>
       </v-main>
+
+      
     </v-app>
   </template>
   
@@ -99,7 +136,7 @@
   <script>
     export default {
         data: () => ({
-        
+         
         }),
     }
   </script>

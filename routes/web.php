@@ -30,10 +30,16 @@ Route::get('/hello', function () {
     return Inertia::render('hello-world');
 });
 
+
 Route::get('/', function () {
     return Inertia::render('index');
 });
-
 Route::get('/about', function () {
     return Inertia::render('about');
+});
+Route::get('/blog', function () {
+    return Inertia::render('blog');
+});
+Route::get('/contact', function () {
+    return Inertia::render('contact');
 });
