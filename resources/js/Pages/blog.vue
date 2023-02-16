@@ -13,55 +13,38 @@
       </v-list> -->
       <table>
         <tbody>
-          <tr>
-            <td style="width: 60%;">
+          <tr
+            v-for="blog in blogs"
+            :key="blog.id"
+            
+          >
+            <!-- <td style="width: 60%;"> -->
+            <td style="padding: 15px 10px;">
               <a href="">
                 <div>
-                  <h3>Title</h3>
-                  <h5>category</h5>
-                  <p>
-                    内容内容内容内容内容
-                  </p>
-                  <h3>
+                  <span class="font-bold" style="color: #333; font-size: 1.2rem;">{{ blog.title }}</span>
+                  <span class="font-bold" style="color: rgb(15, 99, 189); font-size: 1rem;">【{{ blog.category }}】</span>
+                  <div class="line-clamp-3 mb-1" style="color: #666; font-size: 0.8rem; ">
+                    {{ blog.summary }}
+                  </div>
+                  <div class="font-bold" style="font-size: 0.9rem; color: rgb(8, 138, 181); text-align: right;">
                     記事を読む >
-                  </h3>
+                  </div>
                 </div>
               </a>
             </td>
-            <td style="width: 40%;">
+            <!-- <td style="width: 40%; padding: 10px;">
               <a href="">
-                <img src="https://data.editor-ac.com/data/thumbnails/templates/499f801f48c046e907dae5d7d59f8dcf/499f801f48c046e907dae5d7d59f8dcf-1500.webp" alt="">
+                <img v-if="blog.sumbnail" v-bind:src='`/blog_sumbnails/posts/${blog.sumbnail}`' alt="ブログサムネイル">
+                <img v-else src="/blog_sumbnails/no-image.jpg" alt="ブログサムネイル">
               </a>
-            </td>
-          </tr>
-          <br>
-
-          <tr>
-            <td style="width: 60%;">
-              <a href="">
-                <div>
-                  <h3>Title</h3>
-                  <h5>category</h5>
-                  <p>
-                    内容内容内容内容内容
-                  </p>
-                  <h3>
-                    記事を読む >
-                  </h3>
-                </div>
-              </a>
-            </td>
-            <td style="width: 40%;">
-              <a href="">
-                <img src="https://data.editor-ac.com/data/thumbnails/templates/499f801f48c046e907dae5d7d59f8dcf/499f801f48c046e907dae5d7d59f8dcf-1500.webp" alt="">
-              </a>
-            </td>
+            </td> -->
           </tr>
         </tbody>
       </table>
     </template>
 
-    <template v-slot:side-reccomend>
+    <!-- <template v-slot:side-reccomend>
       <v-sheet
         rounded="lg"
         min-height="268"
@@ -70,7 +53,8 @@
         おすすめ記事
       </v-sheet>
       <br>
-    </template>
+    </template> -->
+
     <!-- <template v-slot:side-addvertise>
       <v-sheet
         rounded="lg"
@@ -81,6 +65,7 @@
       </v-sheet>
       <br>
     </template> -->
+
     <!-- <template v-slot:side-writer>
       <v-sheet
         rounded="lg"
@@ -96,32 +81,16 @@
 
 <script>
   import { InertiaLink } from '@inertiajs/inertia-vue3'
+  import { Inertia } from "@inertiajs/inertia";
   import Layout from './Layouts/Layout.vue'
 
   export default {
       data: () => ({
-        items: [
-          { type: 'subheader', title: '最近' },
-
-          {
-            prependAvatar: 'https://cdn.vuetifyjs.com/images/lists/1.jpg',
-            title: 'Brunch this weekend?',
-            subtitle: `<span class="text-primary">Ali Connors</span> &mdash; I'll be in your neighborhood doing errands this weekend. Do you want to hang out?`,
-          },
-          { type: 'divider', inset: true },
-          {
-            prependAvatar: 'https://cdn.vuetifyjs.com/images/lists/2.jpg',
-            title: 'Summer BBQ',
-            subtitle: `<span class="text-primary">to Alex, Scott, Jennifer</span> &mdash; Wish I could come, but I'm out of town this weekend.`,
-          },
-          { type: 'divider', inset: true },
-          {
-            prependAvatar: 'https://cdn.vuetifyjs.com/images/lists/3.jpg',
-            title: 'Oui oui',
-            subtitle: '<span class="text-primary">Sandra Adams</span> &mdash; Do you have Paris recommendations? Have you ever been?',
-          },
-        ]
+        // blogs: blogs
       }),
+      props: {
+        blogs: Array,
+      },
       components: {
           Layout,
       },

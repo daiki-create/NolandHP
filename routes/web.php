@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
+use App\Http\Controllers\BlogController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,9 +40,21 @@ Route::get('/', function () {
 Route::get('/about', function () {
     return Inertia::render('about');
 });
-Route::get('/blog', function () {
-    return Inertia::render('blog');
-});
+// Route::get('/blog', function () {
+//     return Inertia::render('blog');
+// })->name('blog');
 Route::get('/contact', function () {
     return Inertia::render('contact');
 });
+
+Route::get('/post_page', function () {
+    return Inertia::render('post_page');
+})->name('post_page');
+
+Route::resource('blogs',BlogController::class, [
+    'names' => [
+        'index' => 'blogs.index',
+        'store' => 'blogs.store',
+        // etc...
+    ]
+]);

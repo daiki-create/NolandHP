@@ -20,7 +20,7 @@
                     <Link href="/about">ABOUT US</Link>
                 </li>
                 <li style="padding:0 20px;">
-                  <Link href="/blog">BLOG</Link>
+                  <Link href="/blogs">BLOG</Link>
               </li>
               <li style="padding:0 20px;">
                 <Link href="/contact">CONTACT</Link>
@@ -104,7 +104,7 @@
               variant="text"
               class="mx-2"
               rounded="xl"
-              href="/blog"
+              href="/blogs"
             >
               BLOG
             </v-btn>
