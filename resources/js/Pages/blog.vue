@@ -1,7 +1,7 @@
 <template>
   <layout>
     <template v-slot>
-      <h1>記事一覧</h1>
+      <h1>最新記事</h1>
       <!-- <v-list
       :items="items"
       item-props
@@ -71,7 +71,7 @@
       </v-sheet>
       <br>
     </template>
-    <template v-slot:side-addvertise>
+    <!-- <template v-slot:side-addvertise>
       <v-sheet
         rounded="lg"
         min-height="268"
@@ -80,8 +80,8 @@
         広告
       </v-sheet>
       <br>
-    </template>
-    <template v-slot:side-writer>
+    </template> -->
+    <!-- <template v-slot:side-writer>
       <v-sheet
         rounded="lg"
         min-height="268"
@@ -89,7 +89,7 @@
       >
         執筆者
       </v-sheet>
-    </template>
+    </template> -->
     
   </layout>
 </template>

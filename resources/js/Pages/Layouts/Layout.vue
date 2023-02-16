@@ -118,8 +118,8 @@
             >
               CONTACT
             </v-btn>
-            <v-col class="text-center mt-4" cols="12">
-              {{ new Date().getFullYear() }} — <strong>Noland制作</strong>
+            <v-col class="text-center mt-4" cols="12" style="font-size: 0.8rem; color:#555;">
+              Copyright © {{ new Date().getFullYear() }} Noland制作. All Rights Reserved.
             </v-col>
           </v-row>
         </v-footer>

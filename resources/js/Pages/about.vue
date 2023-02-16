@@ -1,10 +1,16 @@
 <template>
   <layout>
       <template v-slot:top-img>
-          <div style="width: 100vw;height: 80vh; background-size: cover; background-image: url('/images/top-img.jpeg');"></div>
+        <div style="background-position: center;width: 100vw;height: 80vh; background-size: cover; background-image: url('/images/about-top-img.jpg'); display: flex; align-items: center;">
+          <div style="color: white; margin: auto;">
+              <div style="font-size: 2rem; text-shadow: 1px 1px #aaa; text-align: center;">
+                Noland制作の事業内容
+              </div>
+          </div>
+      </div>
       </template>
       <template v-slot>
-        <h1>Noland制作(個人事業)</h1>
+        <!-- <h1>Noland制作(個人事業)</h1> -->
 
         <v-table class="mt-4">
           <thead>
@@ -56,7 +62,7 @@
           },
           {
             name: 'サービス開発',
-            calories: "プログラミング支援サービス「MatchPro」",
+            calories: "プログラミング学習支援サービス「MatchPro」",
           },
         ],
         infos: [
