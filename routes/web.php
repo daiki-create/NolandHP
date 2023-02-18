@@ -3,7 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
+use App\Http\Controllers\IndexController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\ContactController;
 
 
 /*
@@ -17,26 +19,11 @@ use App\Http\Controllers\BlogController;
 |
 */
 
-Route::get('/welcome', function () {
-    return view('welcome');
-});
 
-Route::get('/test', function () {
-    return view('test');
-});
-
-Route::get('/vue', function () {
-    return view('vue');
-});
-
-Route::get('/hello', function () {
-    return Inertia::render('hello-world');
-});
-
-
-Route::get('/', function () {
-    return Inertia::render('index');
-});
+// Route::get('/', function () {
+//     return Inertia::render('index');
+// });
+Route::get('/', [IndexController::class, 'index']);
 Route::get('/about', function () {
     return Inertia::render('about');
 });
@@ -55,6 +42,8 @@ Route::resource('blogs',BlogController::class, [
     'names' => [
         'index' => 'blogs.index',
         'store' => 'blogs.store',
-        // etc...
+        // 'detail' => 'blogs.show'
     ]
 ]);
+
+Route::resource('contact',ContactController::class);

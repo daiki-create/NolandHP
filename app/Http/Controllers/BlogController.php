@@ -17,7 +17,9 @@ class BlogController extends Controller
      */
     public function index()
     {
-        $blogs = Blog::all();
+        $blogs = Blog::orderBy('created_at', 'DESC')
+        ->take(20)
+        ->get();
 
         return Inertia::render(
             'blog',
@@ -84,7 +86,11 @@ class BlogController extends Controller
      */
     public function show($id)
     {
-        //
+        return Inertia::render('detail', [
+            'blog' => Blog::select('writer', 'title', 'body', 'created_at')
+            ->where('id', $id)
+            ->first()
+        ]);
     }
 
     /**

@@ -34,49 +34,57 @@
                 <v-col
                   cols="4"
                   sm="4"
-                  v-for="wn in whats_new"
-                  :key="wn"
+                  v-for="blog in blogs"
+                  :key="blog.id"
                 >
+                    
                     <v-card
                         class="mx-auto"
                         max-width="344"
                     >
-                        <v-img
-                        src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
-                        height="200px"
-                        cover
-                        ></v-img>
+                        <a v-bind:href='`/blogs/${blog.id}`'>
+                            <v-img
+                            :src="`/images/${blog.img}`"
+                            height="200px"
+                            cover
+                            ></v-img>
+                        </a>
 
-                        <v-card-title>
-                            {{ wn.title }}
-                        </v-card-title>
+                        <a v-bind:href='`/blogs/${blog.id}`'>
+                            <v-card-title style="font-size: 1.2rem;">
+                                {{ blog.title }}
+                            </v-card-title>
+                        </a>
 
                         <v-card-subtitle>
-                            {{ wn.subtitle }}
+                            {{ blog.created_at }}
                         </v-card-subtitle>
 
                         <v-card-actions>
                         <v-btn
                             color="orange-lighten-2"
                             variant="text"
+                            @click="blog.show = !blog.show"
                         >
-                            Explore
+                            サマリー
                         </v-btn>
 
                         <v-spacer></v-spacer>
 
                         <v-btn
-                            :icon="wn.show ? 'mdi-chevron-up' : 'mdi-chevron-down'"
-                            @click="wn.show = !wn.show"
+                            :icon="blog.show ? 'mdi-chevron-up' : 'mdi-chevron-down'"
+                            @click="blog.show = !blog.show"
                         ></v-btn>
                         </v-card-actions>
 
                         <v-expand-transition>
-                        <div v-show="wn.show">
+                        <div v-show="blog.show">
                             <v-divider></v-divider>
 
                             <v-card-text>
-                                {{ wn.text }}
+                                <p class="line-clamp-4" style="font-size: 0.8rem;">
+                                    {{ blog.summary }}
+                                </p>
                             </v-card-text>
                         </div>
                         </v-expand-transition>
@@ -184,27 +192,11 @@
 
     export default {
         data: () => ({
-            whats_new: [
-                {
-                    title: "title",
-                    subtitle: "subtitle",
-                    text: "text",
-                    show: false
-                },
-                {
-                    title: "title2",
-                    subtitle: "subtitle",
-                    text: "text",
-                    show: false
-                },
-                {
-                    title: "title3",
-                    subtitle: "subtitle",
-                    text: "text",
-                    show: false
-                },
-            ]
+            
         }),
+        props: {
+            blogs: Array,
+        },
         components: {
             Layout,
         },

@@ -1,7 +1,16 @@
 <template>
   <layout>
     <template v-slot>
-      <h1>最新記事</h1>
+      <div style="display:flex; align-items: center;">
+        <v-icon
+        size="large"
+        color="blue-grey-darken-2"
+        class="mr-2"
+        >
+          mdi-pencil
+        </v-icon>
+        <h1 class="font-bold">最新のブログ記事</h1>
+      </div>
       <!-- <v-list
       :items="items"
       item-props
@@ -11,7 +20,7 @@
           <div v-html="subtitle"></div>
         </template>
       </v-list> -->
-      <table>
+      <table class="mt-8">
         <tbody>
           <tr
             v-for="blog in blogs"
@@ -20,7 +29,7 @@
           >
             <!-- <td style="width: 60%;"> -->
             <td style="padding: 15px 10px;">
-              <a href="">
+              <a v-bind:href='`/blogs/${blog.id}`'>
                 <div>
                   <span class="font-bold" style="color: #333; font-size: 1.2rem;">{{ blog.title }}</span>
                   <span class="font-bold" style="color: rgb(15, 99, 189); font-size: 1rem;">【{{ blog.category }}】</span>

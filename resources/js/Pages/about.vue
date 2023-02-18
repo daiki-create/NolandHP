@@ -72,11 +72,11 @@
           },
           {
             name: '屋号取得',
-            calories: "2020年xx月",
+            calories: "2020年11月",
           },
           {
             name: '所在地',
-            calories: "神奈川県横浜市神奈川区xxx町x-xx",
+            calories: "神奈川県横浜市神奈川区",
           },
         ],
       }),
